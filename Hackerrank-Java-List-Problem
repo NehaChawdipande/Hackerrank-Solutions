@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+public class Solution{
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc  = new Scanner(System.in);
+        int n= sc.nextInt(); //scanning initial number of elements in list
+        List<Integer> L = new ArrayList<Integer>(); //creating a new List named L;
+        for(int i = 0; i<n;i++)
+        L.add(sc.nextInt());    //adding elements to list from user input
+        String query = "";      //initialising query string variable
+        int q = sc.nextInt(); // getting number of queries
+        sc.nextLine();    // scanning nextline beforehand to avoid problem of scanning String after an Integer.
+        for(int i=0;i<q;i++)
+        {
+            
+            query = sc.next(); //scannning String query for insert or delete.
+            if(query.equals("Insert"))
+            {
+                int index = sc.nextInt();
+                    int temp = sc.nextInt();
+                    L.add(index,temp);
+            }
+            else if(query.equals("Delete"))
+            {
+                int index =  sc.nextInt();
+                     try{
+                         L.remove(index);  //removing element using index can throw NoSuchElement exception hence using try catch block.
+                     }
+                     catch(Exception e)
+                     {
+                         System.out.println("No such element.");
+                     }
+            }
+            else System.out.println("use Insert or Delete");
+            
+        }
+        Iterator<Integer> itr = L.iterator();  //printing out elements of list using iterator
+        while (itr.hasNext()) {
+            System.out.print(itr.next()+" ");
+        }  
+    }
+}
