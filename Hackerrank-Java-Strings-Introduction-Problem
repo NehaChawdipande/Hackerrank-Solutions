@@ -1,0 +1,21 @@
+import java.lang.*;
+import java.util.*;
+
+class Solution //palindrome checker
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int len = s.length();
+        String temp = "";
+        for(int i = len-1; i>=0;i--)
+        {
+            temp = temp+ s.charAt(i);
+        }
+        if(s.equalsIgnoreCase(temp))
+        System.out.println("Yes");
+        else 
+        System.out.println("No");
+    }
+}
